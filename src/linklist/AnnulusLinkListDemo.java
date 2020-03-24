@@ -5,6 +5,7 @@ public class AnnulusLinkListDemo {
         AnnulusLinkeList list = new AnnulusLinkeList();
         list.add(5);
         list.list();
+        list.countBoy(1,2,5);
     }
 }
 class AnnulusLinkeList{
@@ -52,6 +53,35 @@ class AnnulusLinkeList{
     public  void countBoy(int startnum,int countnum,int num){
         if(firstBoy ==null||num<1||startnum>num){
             System.out.println("参数有误");
+        }
+        Boy help = firstBoy;
+        //help指向最后一个节点
+        while (true){
+            if(help.getNest() == firstBoy){
+                break;
+            }
+            help = help.getNest();
+        }
+//        报数前，先让help,first移动k-1次
+        for(int j= 0;j<startnum-1;j++){
+            firstBoy = firstBoy.getNest();
+            help = help.getNest();
+        }
+        //开始报数
+        while (true){
+            if(help == firstBoy){
+                System.out.println("只有一个人啦");
+                System.out.println(firstBoy.getNo());
+                break;
+            }
+            for(int j= 0;j<countnum-1;j++){
+                firstBoy = firstBoy.getNest();
+                help = help.getNest();
+            }
+            System.out.printf("出圈 %d \n",firstBoy.getNo());
+            //指向下一个人
+            firstBoy = firstBoy.getNest();
+            help.setNest(firstBoy);
         }
     }
 }
