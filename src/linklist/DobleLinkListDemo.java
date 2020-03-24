@@ -61,7 +61,7 @@ class HeroNode2 {
 class DoubleLinkList {
     //初始化一个头节点
     private HeroNode2 head = new HeroNode2(0,"头节点");
-    //返回头节点
+    //返回头节点111
     public HeroNode2 getHea(){
         return head;
     }
